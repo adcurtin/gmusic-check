@@ -1,6 +1,6 @@
 
 # the username to use
-username = 'john.elkins@gmail.com'
+username = 'adcurtin@gmail.com'
 
 # the separator to use for detailed track information
 track_info_separator = u','
@@ -8,7 +8,7 @@ track_info_separator = u','
 #track_info_separator = u'|'
 
 # the order of the track details
-track_info_order = ['title','artist','album','songid']
+track_info_order = ['title', 'artist', 'album', 'songid']
 #track_info_order = ['title','artist','album','genre','year','durationMillis','playCount','rating','songid']
 
 # output debug information to the log

@@ -1,0 +1,7 @@
+.password
+current/
+previous/
+All.diff
+*.pyc
+old/
+export.log

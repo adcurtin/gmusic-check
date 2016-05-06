@@ -17,15 +17,18 @@ if not os.path.exists(output_dir):
 api = open_api()
 library = load_personal_library()
 
+
 def playlist_handler(playlist_name, playlist_description, playlist_tracks):
     # skip empty and no-name playlists
-    if not playlist_name: return
-    if len(playlist_tracks) == 0: return
+    if not playlist_name:
+        return
+    if len(playlist_tracks) == 0:
+        return
 
     # setup output files
-    open_log(os.path.join(output_dir,playlist_name+u'.log'))
-    outfile = codecs.open(os.path.join(output_dir,playlist_name+u'.csv'),
-        encoding='utf-8',mode='w')
+    open_log(os.path.join(output_dir, playlist_name+u'.log'))
+    outfile = codecs.open(os.path.join(output_dir, playlist_name+u'.csv'),
+                          encoding='utf-8', mode='w')
 
     # keep track of stats
     stats = create_stats()
@@ -35,8 +38,8 @@ def playlist_handler(playlist_name, playlist_description, playlist_tracks):
 
     log('')
     log('============================================================')
-    log(u'Exporting '+ unicode(len(playlist_tracks)) +u' tracks from '
-        +playlist_name)
+    log(u'Exporting ' + unicode(len(playlist_tracks)) + u' tracks from '
+        + playlist_name)
     log('============================================================')
 
     # add the playlist description as a "comment"
@@ -62,12 +65,12 @@ def playlist_handler(playlist_name, playlist_description, playlist_tracks):
         result_details = create_result_details(track)
 
         if not allow_duplicates and result_details['songid'] in song_ids:
-            log('{D} '+str(tnum+1)+'. '+create_details_string(result_details,True))
+            log('{D} '+str(tnum+1)+'. '+create_details_string(result_details, True))
             export_skipped += 1
             continue
 
         # update the stats
-        update_stats(track,stats)
+        update_stats(track, stats)
 
         # export the track
         song_ids.append(result_details['songid'])
@@ -75,7 +78,7 @@ def playlist_handler(playlist_name, playlist_description, playlist_tracks):
         outfile.write(os.linesep)
 
     # calculate the stats
-    stats_results = calculate_stats_results(stats,len(playlist_tracks))
+    stats_results = calculate_stats_results(stats, len(playlist_tracks))
 
     # output the stats to the log
     log('')
@@ -105,7 +108,6 @@ if export_thumbs_up:
         if track.get('rating') is not None and int(track.get('rating')) > 1:
             thumbs_up_tracks.append(track)
 
-
     # modify format of each dictionary to match the data type
     # of the other playlists
     thumbs_up_tracks_formatted = []
@@ -119,7 +121,8 @@ if export_all:
     for t in library:
         all_tracks_formatted.append({'track': t})
 
-    playlist_handler('All', 'All tracks', all_tracks_formatted)
+    all_tracks_sorted = sorted(all_tracks_formatted, key=lambda k: k['track']['title'])
+
+    playlist_handler('All', 'All tracks', all_tracks_sorted)
 
 close_api()
-    
