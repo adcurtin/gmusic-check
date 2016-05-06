@@ -160,7 +160,8 @@ def open_api():
     global api
     log('Logging into google music...')
     # get the password each time so that it isn't stored in plain text
-    password = ''  # getpass.getpass(username + '\'s password: ')
+    p = open('.password', 'r')
+    password = p.read().strip()
 
     api = Mobileclient()
     if not api.login(username, password, Mobileclient.FROM_MAC_ADDRESS):
