@@ -2,9 +2,10 @@ import sys
 import smtplib
 
 gmail_user = 'adcurtin@gmail.com'
-gmail_pwd = 'skdjjyglnmxzzkyt'
-FROM = 'adcurtin@gmail.com'
-TO = 'adcurtin@gmail.com'
+p = open('.password', 'r')
+gmail_pwd = p.read().strip()
+FROM = gmail_user
+TO = gmail_user
 SUBJECT = 'Google Music diff script'
 TEXT = sys.stdin.read()
 
