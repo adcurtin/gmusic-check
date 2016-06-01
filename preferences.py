@@ -8,14 +8,14 @@ track_info_separator = u','
 #track_info_separator = u'|'
 
 # the order of the track details
-track_info_order = ['title', 'artist', 'album', 'songid']
+track_info_order = ['title', 'artist', 'album']  # , 'songid']
 #track_info_order = ['title','artist','album','genre','year','durationMillis','playCount','rating','songid']
 
 # output debug information to the log
 debug = False
 
 # don't import or export the same song twice
-allow_duplicates = False
+allow_duplicates = True
 
 # == ImportList.py preferences ==============================================
 
