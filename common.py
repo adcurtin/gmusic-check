@@ -159,12 +159,8 @@ def create_details_string(details_dict, skip_id=False):
 def open_api():
     global api
     log('Logging into google music...')
-    # get the password each time so that it isn't stored in plain text
-    p = open('.password', 'r')
-    password = p.read().strip()
-
     api = Mobileclient()
-    if not api.login(username, password, Mobileclient.FROM_MAC_ADDRESS):
+    if not api.oauth_login(Mobileclient.FROM_MAC_ADDRESS):
         log('ERROR unable to login')
         time.sleep(3)
         exit()
