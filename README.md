@@ -12,6 +12,8 @@ to log in to gmusicapi, run `python oauth_login.py`
 need to have an app password for google in `.password` to send email
 
 
+probably want to run `python ExportLists.py current` before running `gmusic_check.sh`
+
 
 
 
