@@ -1,6 +1,6 @@
 #!/bin/bash
 
-pushd /Users/adcurtin/gmusic-playlist/ > /dev/null
+pushd /Users/adcurtin/gmusic-check/ > /dev/null
 rm -r previous
 cp -r current previous
 /usr/local/bin/python ExportLists.py current > export.log

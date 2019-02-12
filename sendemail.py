@@ -17,7 +17,7 @@ SUBJECT = 'Google Music diff script'
 
 if (args.grep_retval == 0):  # found the grep string!
     SUBJECT = 'SONG REMOVED! Google Music diff script'
-    TEXT = "A SONG HAS BEEN REMOVED FROM THE LIBRARY\n"
+    TEXT = "A SONG HAS BEEN REMOVED (>) FROM THE LIBRARY\n"
     TEXT += sys.stdin.read()
 else:
     TEXT = sys.stdin.read()
